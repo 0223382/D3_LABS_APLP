@@ -40,11 +40,11 @@ d3.json("data/buildings.json").then((data) => {
      rects.enter()
           .append("rect")
           .attr("x", (d, i) => {
-               return (i * 50) + 20;
+               return (i * 50) + 15;
           })
           .attr("y", (d) => y(d.height)
           )
-          .attr("width", 20)
+          .attr("width", 25)
           .attr("height", (d) => { return d.height; })
           .attr("fill", (d) => { return color(d.name); });
 
