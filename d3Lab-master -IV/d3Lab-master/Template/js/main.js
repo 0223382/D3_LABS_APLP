@@ -6,26 +6,24 @@ var svg = d3.select("#chart-area").append("svg")
      .attr("width", 500)
      .attr("height", 500);
 
-var buildings = []
 
 d3.json("data/buildings.json").then((data) => {
+     console.log(data);
 
-     data.forEach((d) => {
-
-          d.name = +d.building;
-
+     data.forEach(d => {
+          d.height = +d.height
      });
 
-     var rect = svg.selectAll("rect")
+     var rects = svg.selectAll("rect")
           .data(data);
 
-     console.log(buildings);
-
-     rect.enter()
+     rects.enter()
           .append("rect")
-          .attr("x", (d, i) => { return (i * 50) + 25; })
+          .attr("x", (d, i) => { 
+               return (i * 50) + 20; })
+          .attr("y", 10)
           .attr("width", 20)
-          .attr("height", (d) => { return d.building;})
+          .attr("height", (d) => { return d.height;})
           .attr("fill", "red");
 
 
